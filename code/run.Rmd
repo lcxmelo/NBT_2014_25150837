@@ -1,0 +1,21 @@
+---
+title: "[Reanalysis] Detecting and correcting systematic variation in large-scale RNA sequencing data"
+author: "Jingcheng Yang"
+date: "2022-04-02"
+output: html_document
+---
+
+## Abstract
+High-throughput RNA sequencing (RNA-seq) enables comprehensive scans of entire transcriptomes, but best practices for analyzing RNA-seq data have not been fully defined, particularly for data collected with multiple sequencing platforms or at multiple sites. Here we used standardized RNA samples with built-in controls to examine sources of error in large-scale RNA-seq studies and their impact on the detection of differentially expressed genes (DEGs). Analysis of variations in guanine-cytosine content, gene coverage, sequencing error rate and insert size allowed identification of methods that produce more false positives or are less reproducible across sites. Moreover, commonly used methods fornormalization (cqn, EDASeq, RUV2, sva, PEER) varied in their ability to remove these systematic biases, depending on sample complexity and initial data quality. Normalization methods that combine data from genes across sites are strongly recommended to identify and remove site-specific effects, and can substantially improve RNA-seq studies.
+
+## Results
+
+```{r}
+library(ggplot2)
+data(diamonds)
+set.seed(42)
+small <- diamonds[sample(nrow(diamonds), 1000), ]
+
+p <- ggplot(data=small, mapping=aes(x=carat, y=price, shape=cut, colour=color))
+p + geom_point()
+```
